@@ -10,8 +10,9 @@ import { Prisma } from '@prisma/client';
 
 interface CardProps {
   product: any;
+  size:any
 }
-function Card({product}: CardProps) {
+function Card({product,size}: CardProps) {
   const { cartItems, addToCart, removeFromCart } = useCart();
   const [showNotification, setShowNotification] = useState(false);
   const onCickaddToCart = (product: any)=>{

@@ -1,7 +1,12 @@
 import { useEffect, useState } from 'react';
 import classes from '../styles/Notification.module.scss';
+interface NotificationProps {
+  product:any
+  duration: any 
+  show: any 
+}
 
-function Notification({ product, duration, show  }) {
+function Notification({ product, duration, show  }:NotificationProps) {
   const [showN, setShow] = useState(false);
 
   useEffect(() => {

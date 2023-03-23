@@ -1,27 +1,26 @@
 import { useState, useEffect } from 'react';
 import classes from '../styles/Slider.module.scss';
-import { PictureData,Pictures } from '@/utils/types';
 import InstagramMedia from './InstagramMedia';
 
 
 
 interface SliderProps {
-  pictures: Pictures;
+  pictures: any;
 }
 
 export default function Slider({ pictures }: SliderProps): JSX.Element {
 
   useEffect(() => {
-    const track = document.querySelector(`.${classes.imageTrack}`);
+    const track: any = document.querySelector(`.${classes.imageTrack}`);
 
-    const handleOnDown = (e) => (track.dataset.mouseDownAt = e.clientX);
+    const handleOnDown = (e: { clientX: any; }) => (track.dataset.mouseDownAt = e.clientX);
 
     const handleOnUp = () => {
       track.dataset.mouseDownAt = "0";
       track.dataset.prevPercentage = track.dataset.percentage;
     };
 
-    const handleOnMove = (e) => {
+    const handleOnMove = (e: { clientX: number; }) => {
       if (track.dataset.mouseDownAt === "0") return;
 
       const mouseDelta = parseFloat(track.dataset.mouseDownAt) - e.clientX,
@@ -77,8 +76,8 @@ export default function Slider({ pictures }: SliderProps): JSX.Element {
   }, []);
   return (
     <div className={classes.imageTrack} data-mouse-down-at="0" data-prev-percentage="0">
-      {pictures?.map((picture: Picture) => (
-        <InstagramMedia picture={picture}/>
+      {pictures?.map((picture: any,index:any) => (
+        <InstagramMedia key={index} picture={picture}/>
       ))}
     </div>
   );
