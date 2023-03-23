@@ -1,9 +1,8 @@
 import { useState, useEffect } from 'react';
 import classes from '../styles/Portfolio.module.scss';
-import ImageWithText from './Modal';
+
 import Image from 'next/image';
 import { AnimatePresence } from 'framer-motion';
-import Modal from './Modal';
 
 
 const images = [
@@ -15,16 +14,16 @@ const images = [
  { src : "/VogueCutouts.png"},
 ]
 
-function handleOnDown(track, e) {
+function handleOnDown(track: any, e: { clientX: any; }) {
   track.dataset.mouseDownAt = e.clientX;
 }
 
-function handleOnUp(track) {
+function handleOnUp(track: any) {
   track.dataset.mouseDownAt = "0";
   track.dataset.prevPercentage = track.dataset.percentage;
 }
 
-function handleOnMove(track, e) {
+function handleOnMove(track: any, e: { clientX: number; }) {
   if (track.dataset.mouseDownAt === "0") return;
 
   const mouseDelta = parseFloat(track.dataset.mouseDownAt) - e.clientX,
@@ -36,7 +35,7 @@ function handleOnMove(track, e) {
       parseFloat(track.dataset.prevPercentage) + percentage,
     nextPercentage = Math.max(Math.min(nextPercentageUnconstrained, 0), -100);
 
-  track.dataset.percentage = nextPercentage;
+    track.dataset.percentage = nextPercentage;
 
   track?.animate(
     {
@@ -55,7 +54,7 @@ function handleOnMove(track, e) {
   }
 }
 
-function checkIntersection(element, crosshair) {
+function checkIntersection(element: { getBoundingClientRect: () => any; }, crosshair: { getBoundingClientRect: () => any; }) {
   console.log(element)
   const elementRect = element.getBoundingClientRect();
   const crosshairRect = crosshair.getBoundingClientRect();
@@ -74,9 +73,9 @@ export default function Slider(): JSX.Element {
   useEffect(() => {
     const track = document.querySelector(`.${classes.imageTrack}`);
 
-    const handleMouseDown = (e) => handleOnDown(track, e);
+    const handleMouseDown = (e: any) => handleOnDown(track, e);
     const handleMouseUp = () => handleOnUp(track);
-    const handleMouseMove = (e) => handleOnMove(track, e);
+    const handleMouseMove = (e: any) => handleOnMove(track, e);
 
     // Add event listeners for mouse events
     track?.addEventListener("mousedown", handleMouseDown);
@@ -93,39 +92,7 @@ export default function Slider(): JSX.Element {
     };
   }, []);
 
-  const [intersectingImage, setIntersectingImage] = useState(null);
-
-  useEffect(() => {
-    const crosshair = document.querySelector(`.${classes.svg}`);
-    const images = document.querySelectorAll(`.${classes.image}`);
-  
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          setIntersectingImage(entry.target);
-          console.log(entry.target)
-        } else if (intersectingImage === entry.target) {
-          setIntersectingImage(null);
-        }
-      });
-    });
-  
-    images.forEach((image) => {
-      observer.observe(image);
-    });
-  
-    return () => {
-      images.forEach((image) => {
-        observer.unobserve(image);
-      });
-    };
-  }, []);
-
-
-  const [modalOpen, setModalOpen] = useState(false);
-
-  const close = () => setModalOpen(false);
-  const open = () => setModalOpen(true);
+ 
   return (
     <>
     <svg className={classes.svg} viewBox="0 0 22 22"><polygon points="22 11.751 0 11.751 0 10.249 22 10.249 22 11"></polygon><polygon points="11.751 0 11.751 22 10.249 22 10.249 0 11 0"></polygon></svg>

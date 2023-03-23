@@ -1,8 +1,6 @@
-import { useState, useEffect } from 'react';
-import Image from 'next/image';
 import Slider from '~/components/Slider';
 import classes from '../styles/Home.module.scss';
-import { Convert, Pictures, Picture } from '~/utils/types';
+import { Pictures } from '~/utils/types';
 import HeroSection from '~/components/HeroSection';
 import { api } from '~/utils/api';
 

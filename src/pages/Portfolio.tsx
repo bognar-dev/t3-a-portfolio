@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import SliderPortfolio from '~/components/SliderPortfolio';
 import classes from '../styles/Portfolio.module.scss';
-import { Convert, Pictures, Picture } from '~/utils/types';
 import HeroSection from '~/components/HeroSection';
 import { AnimatePresence, motion } from "framer-motion"
 
@@ -15,8 +14,8 @@ const images = [
   { src : "/VogueCutouts.png"},
  ]
 export default function Portfolio(): JSX.Element {
-  const [selectedImage, setSelectedImage] = useState(null);
-    const handleImageClick = (image) => {
+  const [selectedImage, setSelectedImage] = useState<any>(null);
+    const handleImageClick = (image:any) => {
     setSelectedImage(image);
   };
   const handleCloseModal = () => {

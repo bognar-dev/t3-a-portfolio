@@ -1,4 +1,22 @@
+export interface Product {
+    id: number;
+    name: string;
+    price: number;
+    description: string;
+    priceOrginal: number;
+  }
 
+
+ export interface CartItem extends Product {
+    uuid: string;
+  }
+  
+
+// To parse this data:
+//
+//   import { Convert, Pictures } from "./file";
+//
+//   const pictures = Convert.toPictures(json);
 
 export interface Pictures {
   data:   PictureData[];
