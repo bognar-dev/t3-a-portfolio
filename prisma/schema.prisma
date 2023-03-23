@@ -2,16 +2,19 @@
 // learn more about it in the docs: https://pris.ly/d/prisma-schema
 
 generator client {
-    provider = "prisma-client-js"
+  provider = "prisma-client-js"
 }
-
 datasource db {
-    provider = "sqlite"
-    url      = env("DATABASE_URL")
+  provider = "mysql"
+  url = env("DATABASE_URL")
+  relationMode = "prisma"
 }
 
-model Example {
-    id        String   @id @default(cuid())
-    createdAt DateTime @default(now())
-    updatedAt DateTime @updatedAt
+model Product {
+    id        Int   @id @default(autoincrement())
+    name      String @db.VarChar(32)
+    description String @db.VarChar(255)
+    price Decimal @db.Decimal(8,2)
+    priceOriginal Decimal @db.Decimal(8,2)
+    imageId String @db.VarChar(32)
 }
