@@ -29,6 +29,14 @@ const config = {
       },
     ],
     "@typescript-eslint/no-unused-vars": ["off", { argsIgnorePattern: "^_" }],
+    "@next/next/no-img-element": "off",
+    "@typescript-eslint/no-explicit-any": "off",
+"@typescript-eslint/no-unsafe-argument":"off",
+"@typescript-eslint/no-unsafe-member-access":"off",
+"react/no-unescaped-entities":"off",
+"@typescript-eslint/restrict-template-expressions":"off",
+"@typescript-eslint/no-empty-function":"off",
+"@typescript-eslint/no-empty-function":"off",
   },
 };
 

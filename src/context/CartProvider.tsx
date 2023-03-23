@@ -1,4 +1,4 @@
-import React, { createContext, useState, useContext } from 'react';
+import React, { createContext, useState, useContext, ReactNode } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import { Product, CartItem } from '../utils/types';
 
@@ -14,7 +14,7 @@ const CartContext = createContext<CartContextValue>({
   removeFromCart: () => {},
 });
 
-const CartProvider: React.FC<React.PropsWithChildren<{}>> = ({ children }) => {
+const CartProvider: React.FC<React.PropsWithChildren<ReactNode>> = ({ children }) => {
   const [cartItems, setCartItems] = useState<CartItem[]>([]);
 
   const addToCart = (product: Product) => {
