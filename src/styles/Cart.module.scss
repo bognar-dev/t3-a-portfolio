@@ -1,0 +1,55 @@
+$Darkcyan: hsl(158, 36%, 37%);
+$Cream: hsl(30, 38%, 92%);
+$Verydarkblue: hsl(212, 21%, 14%);
+$Darkgrayishblue: hsl(228, 12%, 48%);
+$White: hsl(0, 0%, 100%);
+
+.container {
+  padding: 4rem;
+  font-family: "Montserrat", sans-serif;
+}
+
+.list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid $Darkgrayishblue;
+  padding: 1rem 0;
+}
+
+.itemInfo {
+  flex-grow: 1;
+  margin-right: 1rem;
+}
+
+.itemName {
+  color: $Darkcyan;
+  font-weight: 500;
+  margin: 0;
+}
+
+.itemPrice {
+  color: $Darkgrayishblue;
+  margin: 0;
+}
+
+.itemButton {
+  border: none;
+  background-color: $Darkcyan;
+  color: $White;
+  padding: 0.5rem 1rem;
+  font-size: 1.2rem;
+  font-weight: 500;
+  border-radius: 0.25rem;
+  cursor: pointer;
+}
+
+.itemButton:hover {
+  background-color: $Verydarkblue;
+}

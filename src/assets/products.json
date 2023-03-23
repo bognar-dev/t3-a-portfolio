@@ -1,0 +1,74 @@
+[
+    {
+        "id": 1,
+        "name": "Gabrielle Essence Eau De Parfume",
+        "description": "A floral, solar and voluptuous interpretation composed by Olivier Polge, Perfumer-Creator for the House of CHANEL.",
+        "price": "149.99£",
+        "priceOriginal": "169.99£",
+        "imageId": "image-product-desktop"
+    },
+    {
+        "id": 2,
+        "name": "Bleu De Channel",
+        "description": "An aromatic, woody and fresh fragrance for men with notes of citrus, wood, and ginger.",
+        "price": "149.99£",
+        "priceOriginal": "169.99£",
+        "imageId": "bleuDeChannel"
+    },
+    {
+        "id": 3,
+        "name": "Channel No. 5",
+        "description": "A classic floral and powdery fragrance with notes of jasmine, rose, and ylang-ylang.",
+        "price": "149.99£",
+        "priceOriginal": "169.99£",
+        "imageId": "c05"
+    },
+    {
+        "id": 4,
+        "name": "Coco Chanel",
+        "description": "An oriental and spicy fragrance with notes of coriander, cloves, and vanilla.",
+        "price": "149.99£",
+        "priceOriginal": "169.99£",
+        "imageId": "Cocochannel"
+    },
+    {
+        "id": 5,
+        "name": "Miu Miu Eau De Parfume",
+        "description": "A floral and fruity fragrance with notes of lily of the valley, jasmine, and musk.",
+        "price": "149.99£",
+        "priceOriginal": "169.99£",
+        "imageId": "miumiu"
+    },
+    {
+        "id": 6,
+        "name": "Miss Dior Eau De Parfume",
+        "description": "A modern, daring and elegant floral fragrance with a hint of jasmine.",
+        "price": "129.99£",
+        "priceOriginal": "149.99£",
+        "imageId": "missdior"
+    },
+    {
+        "id": 7,
+        "name": "Nina Ricci L'Extase Eau De Parfume",
+        "description": "An addictive floral, woody and musky fragrance with a touch of pink pepper.",
+        "price": "99.99£",
+        "priceOriginal": "119.99£",
+        "imageId": "ninaricci"
+    },
+    {
+        "id": 8,
+        "name": "Chloé Eau De Toilette",
+        "description": "A fresh and romantic fragrance with a delicate blend of peony and lychee.",
+        "price": "89.99£",
+        "priceOriginal": "99.99£",
+        "imageId": "chloe"
+    },
+    {
+        "id": 9,
+        "name": "Gucci Bloom Acqua Di Fiori",
+        "description": "A vibrant and joyful fragrance with a blend of galbanum, jasmine and musk.",
+        "price": "139.99£",
+        "priceOriginal": "159.99£",
+        "imageId": "guccibloom"
+    }
+]

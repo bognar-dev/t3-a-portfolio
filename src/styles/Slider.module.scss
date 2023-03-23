@@ -1,0 +1,48 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap");
+
+$Darkcyan: hsl(158, 36%, 37%);
+$Cream: hsl(30, 38%, 92%);
+$Verydarkblue: hsl(212, 21%, 14%);
+$Darkgrayishblue: hsl(228, 12%, 48%);
+$White: hsl(0, 0%, 100%);
+
+.imageTrack {
+  display: flex;
+  gap: 4vmin;
+  position: absolute;
+  left: 10%;
+  top: 75%;
+  transform: translate(0%, -50%); 
+  user-select: none;
+}
+
+.image,
+.video {
+  width: 34vmin;
+  height: 44vmin;
+  border-radius: 1.5rem;
+		object-fit: cover;
+		object-position: 50% 50%;
+		width: 12rem;
+		height: 20rem;
+		vertical-align: bottom;
+		transition: scale 250ms ease-in-out;
+		&:hover {
+			scale: 1.1;
+		}
+}
+
+
+.carusselStack{
+  align-items: center;
+}
+
+.svg{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  fill: $Darkgrayishblue;
+  height: 20px;
+  width: 20px;
+  z-index: 9999;
+}

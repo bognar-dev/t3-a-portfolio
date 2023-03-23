@@ -1,0 +1,98 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap");
+
+
+$Darkcyan: hsl(158, 36%, 37%);
+$Cream: hsl(30, 38%, 92%);
+$Verydarkblue: hsl(212, 21%, 14%);
+$Darkgrayishblue: hsl(228, 12%, 48%);
+$White: hsl(0, 0%, 100%);
+.container{
+    position: sticky;
+    padding: 4rem;
+    font-family: "Montserrat", sans-serif;
+  }
+
+  .cartLinkContainer {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+  }
+
+
+  .navMenu {
+    display: flex;
+  }
+  
+  .navLink {
+    color: $Darkcyan;
+    text-decoration: none;
+    font-size: 1.2em;
+    text-transform: uppercase;
+    font-weight: 500;
+    display: inline-block;
+    padding: 1rem;
+    -webkit-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+  }
+  
+  .navLink:hover {
+    color: $Verydarkblue;
+  }
+  
+  .navMenu .dot {
+    width: 6px;
+    height: 6px;
+    background: $Verydarkblue;
+    border-radius: 50%;
+    opacity: 0;
+    z-index: -1;
+    position: absolute;
+    -webkit-transform: translateX(20%);
+    transform: translateX(20%);
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .navMenu .navLink:nth-child(1):hover ~ .dot {
+    -webkit-transform: translateX(2.5em);
+    transform: translateX(2.5em);
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    opacity: 1;
+  }
+  
+  .navMenu .navLink:nth-child(2):hover ~ .dot {
+    -webkit-transform: translateX(10em);
+    transform: translateX(10em);
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    opacity: 1;
+  }
+  
+  .navMenu .navLink:nth-child(3):hover ~ .dot {
+    -webkit-transform: translateX(18em);
+    transform: translateX(18em);
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    opacity: 1;
+  }
+  
+  .navMenu .navLink:nth-child(4):hover ~ .dot {
+    -webkit-transform: translateX(285px);
+    transform: translateX(285px);
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    opacity: 1;
+  }
+
+  .navMenu .cartLinkContainer:hover ~ .dot{
+    -webkit-transform: translateX(95vw);
+    transform: translateX(95vw);
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    opacity: 1;
+    
+  }
+
+  
+  

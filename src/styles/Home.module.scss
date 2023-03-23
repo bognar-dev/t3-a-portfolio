@@ -1,0 +1,56 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap");
+
+$Darkcyan: hsl(158, 36%, 37%);
+$Cream: hsl(30, 38%, 92%);
+$Verydarkblue: hsl(212, 21%, 14%);
+$Darkgrayishblue: hsl(228, 12%, 48%);
+$White: hsl(0, 0%, 100%);
+
+
+.SliderContainer {
+    height: 100vh;
+    margin: 0rem;
+    padding: 2rem;
+    overflow: hidden;
+}
+
+.hero {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  
+    .hero__content {
+      text-align: center;
+  
+      h1 {
+        font-size: 4rem;
+        font-weight: 700;
+        color: $Darkcyan;
+        margin-bottom: 1rem;
+      }
+  
+      p {
+        font-size: 1.8rem;
+        color: $Darkcyan;
+        margin-bottom: 2rem;
+      }
+  
+      .btn {
+        font-size: 1.6rem;
+        font-weight: 500;
+        color: $Darkcyan;
+        background-color: $Cream;
+        padding: 1rem 2rem;
+        border: none;
+        border-radius: 50px;
+        cursor: pointer;
+        transition: all 0.2s ease-in-out;
+  
+        &:hover {
+          transform: translate3d(20px);
+        }
+      }
+    }
+  }
+  
