@@ -14,7 +14,7 @@ const CartContext = createContext<CartContextValue>({
   removeFromCart: () => {},
 });
 
-const CartProvider: React.FC<React.PropsWithChildren<ReactNode>> = ({ children }) => {
+const CartProvider: React.FC<React.PropsWithChildren<{}>> = ({ children }) => {
   const [cartItems, setCartItems] = useState<CartItem[]>([]);
 
   const addToCart = (product: Product) => {
