@@ -1,11 +1,11 @@
-import { type AppType } from "next/app";
+import { AppProps, type AppType } from "next/app";
 
 import { api } from "~/utils/api";
 import { CartProvider } from '~/context/CartProvider'
 import Layout from '~/components/Layout';
 import "~/styles/globals.scss";
 
-const MyApp: AppType = ({ Component, pageProps }) => {
+const MyApp: AppType = ({ Component, pageProps }:AppProps) => {
   return (
     <CartProvider>
       <Layout>
