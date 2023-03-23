@@ -59,13 +59,13 @@ export default function Slider({ pictures }: SliderProps): JSX.Element {
     return () => {
       // remove the event listeners for both mouse and touch events
       window.removeEventListener("mousedown", handleOnDown);
-      window.removeEventListener("touchstart", handleOnDown);
+      //window.removeEventListener("touchstart", handleOnDown);
 
       window.removeEventListener("mouseup", handleOnUp);
       window.removeEventListener("touchend", handleOnUp);
 
       window.removeEventListener("mousemove", handleOnMove);
-      window.removeEventListener("touchmove", handleOnMove);
+      //window.removeEventListener("touchmove", handleOnMove);
 
       // add back the event listeners for mouse events
       track?.addEventListener("mousedown", handleOnDown);
