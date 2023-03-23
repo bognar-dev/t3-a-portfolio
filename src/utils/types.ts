@@ -61,13 +61,3 @@ export interface Cursors {
   after:  string;
 }
 
-// Converts JSON strings to/from your types
-export class Convert {
-  public static toPictures(json: string): Pictures {
-      return JSON.parse(json);
-  }
-
-  public static picturesToJson(value: Pictures): string {
-      return JSON.stringify(value);
-  }
-}
