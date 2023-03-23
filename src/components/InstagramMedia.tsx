@@ -1,5 +1,5 @@
 import classes from '../styles/Slider.module.scss';
-import {MediaType, ChildrenData, PictureData } from '@/utils/types';
+import {MediaType, ChildrenData, PictureData } from '~/utils/types';
 
 interface InstagramMediaProps {
   picture: PictureData;
