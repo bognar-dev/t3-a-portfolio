@@ -5,8 +5,6 @@ import styles from '~/styles/Card.module.scss'
 import { getImageUrl } from '~/utils/utils';
 import { useCart } from '~/context/CartProvider';
 import Notification from '~/components/Notification';
-import { Prisma } from '@prisma/client';
-
 
 interface CardProps {
   product: any;
