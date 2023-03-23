@@ -7,7 +7,11 @@ import { Product, CartItem} from '~/utils/types';
 import { useCart } from '~/context/CartProvider';
 import Notification from '~/components/Notification';
 
-function Card({ product, size }) {
+
+interface CardProps {
+  product: Product;
+}
+function Card({product}: CardProps) {
   const { cartItems, addToCart, removeFromCart } = useCart();
   const [showNotification, setShowNotification] = useState(false);
   const onCickaddToCart = (product: Product)=>{
