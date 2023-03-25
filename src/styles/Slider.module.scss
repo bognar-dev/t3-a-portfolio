@@ -6,6 +6,8 @@ $Verydarkblue: hsl(212, 21%, 14%);
 $Darkgrayishblue: hsl(228, 12%, 48%);
 $White: hsl(0, 0%, 100%);
 
+
+
 .imageTrack {
   display: flex;
   gap: 4vmin;
@@ -23,8 +25,6 @@ $White: hsl(0, 0%, 100%);
   border-radius: 1.5rem;
 		object-fit: cover;
 		object-position: 50% 50%;
-		width: 12rem;
-		height: 20rem;
 		vertical-align: bottom;
 		transition: scale 250ms ease-in-out;
 		&:hover {

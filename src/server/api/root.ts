@@ -8,6 +8,7 @@ import { instagramRouter } from "./routers/instagram";
  */
 export const appRouter = createTRPCRouter({
   instagram: instagramRouter,
+  products: productsRouter,
 });
 
 // export type definition of API

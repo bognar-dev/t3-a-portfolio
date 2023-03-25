@@ -70,24 +70,24 @@ $White: hsl(0, 0%, 100%);
   }
   
   .navMenu .navLink:nth-child(3):hover ~ .dot {
-    -webkit-transform: translateX(18em);
-    transform: translateX(18em);
+    -webkit-transform: translateX(18.5em);
+    transform: translateX(18.5em);
     -webkit-transition: all 0.3s ease-in-out;
     transition: all 0.3s ease-in-out;
     opacity: 1;
   }
   
   .navMenu .navLink:nth-child(4):hover ~ .dot {
-    -webkit-transform: translateX(285px);
-    transform: translateX(285px);
+    -webkit-transform: translateX(26em);
+    transform: translateX(26em);
     -webkit-transition: all 0.3s ease-in-out;
     transition: all 0.3s ease-in-out;
     opacity: 1;
   }
 
   .navMenu .cartLinkContainer:hover ~ .dot{
-    -webkit-transform: translateX(95vw);
-    transform: translateX(95vw);
+    -webkit-transform: translateX(97vw);
+    transform: translateX(97vw);
     -webkit-transition: all 0.3s ease-in-out;
     transition: all 0.3s ease-in-out;
     opacity: 1;

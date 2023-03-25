@@ -1,14 +1,17 @@
 import Image from "next/image";
+import { ReactNode } from "react";
 import img from "../../instagram-logo.png"
 import classes from '../styles/Home.module.scss';
 
-function HeroSection() {
+interface HeroProps {
+  children: ReactNode;
+}
+
+const HeroSection: React.FC<HeroProps> = ({children})=> {
   return (
     <section className={classes.hero}>
       <div className={classes.hero__content}>
-        <h1>Hey! I am Adel</h1>
-        <p>Check out my profile</p>
-        <a className={classes.btn} href="https://www.instagram.com/adell_n/"> <Image src="/instagram-logo.png" height={50} width={50} alt="Instagram"></Image></a>
+        {children}
       </div>
     </section>
   );

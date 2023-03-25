@@ -1,6 +1,7 @@
 import Card from '~/components/Card'
 import classes from '~/styles/Products.module.scss'
 import productsData from '~/assets/products.json'
+import { api } from '~/utils/api'
 
 type Product = {
   id: number
@@ -12,6 +13,8 @@ type Product = {
 }
 
 function Products(): JSX.Element {
+
+  const products = api.products.getAll.useQuery();
   return (
     <div className={classes.cards}>
       {productsData.map((product: Product) => (
