@@ -1,5 +1,6 @@
 import { createTRPCRouter } from "~/server/api/trpc";
 import { instagramRouter } from "./routers/instagram";
+import { productsRouter } from "./routers/products";
 
 /**
  * This is the primary router for your server.
