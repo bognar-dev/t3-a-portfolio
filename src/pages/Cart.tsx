@@ -26,7 +26,7 @@ const ShoppingCart = () => {
           </li>
         ))}
       </ul>
-      <div>Total: {totalPrice}</div>
+      <div>Total: <p>{totalPrice}</p></div>
     </div>
   );
 };
