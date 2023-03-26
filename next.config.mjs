@@ -7,7 +7,6 @@
 /** @type {import("next").NextConfig} */
 const config = {
   reactStrictMode: true,
-  ignoreDuringBuilds: true,
 
   /**
    * If you have the "experimental: { appDir: true }" setting enabled, then you
@@ -18,6 +17,14 @@ const config = {
   i18n: {
     locales: ["en"],
     defaultLocale: "en",
+  },
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: '**.cdninstagram.com',
+      },
+    ],
   },
 };
 export default config;

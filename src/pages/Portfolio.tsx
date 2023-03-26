@@ -4,6 +4,7 @@ import SliderPortfolio from '~/components/SliderPortfolio';
 import classes from '../styles/Portfolio.module.scss';
 import HeroSection from '~/components/HeroSection';
 import { AnimatePresence, motion } from "framer-motion"
+import { rgbDataURL } from '~/utils/utils';
 
 const images = [
   { src: "/Fashion Styling&Art Direction_Adela_Novakova_page-0002.jpg" },
@@ -21,14 +22,14 @@ export default function Portfolio(): JSX.Element {
   useEffect(() => {
     const track: any = document.querySelector(`.${classes.imageTrack}`);
 
-    const handleOnDown = (e: { clientX: any; }) => (track.dataset.mouseDownAt = e.clientX);
+    const handleOnDown = (e: any) => (track.dataset.mouseDownAt = e.clientX);
 
-    const handleOnUp = () => {
+    const handleOnUp = (e:any) => {
       track.dataset.mouseDownAt = "0";
       track.dataset.prevPercentage = track.dataset.percentage;
     };
 
-    const handleOnMove = (e: { clientX: number; }) => {
+    const handleOnMove = (e: any) => {
       if (track.dataset.mouseDownAt === "0") return;
 
       const mouseDelta = parseFloat(track.dataset.mouseDownAt) - e.clientX,
@@ -63,6 +64,17 @@ export default function Portfolio(): JSX.Element {
     track?.addEventListener("mouseup", handleOnUp);
     track?.addEventListener("mouseleave", handleOnUp);
     track?.addEventListener("mousemove", handleOnMove);
+    window.onmousedown = e => handleOnDown(e);
+
+window.ontouchstart = e => handleOnDown(e.touches[0]);
+
+window.onmouseup = e => handleOnUp(e);
+
+window.ontouchend = e => handleOnUp(e.touches[0]);
+
+window.onmousemove = e => handleOnMove(e);
+
+window.ontouchmove = e => handleOnMove(e.touches[0]);
 
     return () => {
       // remove the event listeners for both mouse and touch events
@@ -110,12 +122,16 @@ export default function Portfolio(): JSX.Element {
       <div className={classes.SliderContainer}>
         <div className={classes.imageTrack} data-mouse-down-at="0" data-prev-percentage="0">
           {images.map((image, index) => (
-            <img
+            <Image
+              placeholder='blur'
+              blurDataURL={rgbDataURL(60, 128, 103)}
               className={classes.image}
               key={index}
               src={image.src}
               alt={image.src}
               draggable="false"
+              width={400}
+              height={400}
               onMouseEnter={() => handleImageHover(image)}
               onMouseLeave={() => handleImageHover(image)}
             />
@@ -125,3 +141,4 @@ export default function Portfolio(): JSX.Element {
     </>
   );
 }
+

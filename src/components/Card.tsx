@@ -9,6 +9,7 @@ import Notification from '~/components/Notification';
 interface CardProps {
   product: any;
   size:any
+  
 }
 function Card({product,size}: CardProps) {
   const { cartItems, addToCart, removeFromCart } = useCart();

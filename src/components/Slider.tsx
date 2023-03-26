@@ -9,18 +9,17 @@ interface SliderProps {
 }
 
 export default function Slider({ pictures }: SliderProps): JSX.Element {
-
   useEffect(() => {
     const track: any = document.querySelector(`.${classes.imageTrack}`);
 
-    const handleOnDown = (e: { clientX: any; }) => (track.dataset.mouseDownAt = e.clientX);
+    const handleOnDown = (e: any) => (track.dataset.mouseDownAt = e.clientX);
 
-    const handleOnUp = () => {
+    const handleOnUp = (e:any) => {
       track.dataset.mouseDownAt = "0";
       track.dataset.prevPercentage = track.dataset.percentage;
     };
 
-    const handleOnMove = (e: { clientX: number; }) => {
+    const handleOnMove = (e: any) => {
       if (track.dataset.mouseDownAt === "0") return;
 
       const mouseDelta = parseFloat(track.dataset.mouseDownAt) - e.clientX,
@@ -55,6 +54,17 @@ export default function Slider({ pictures }: SliderProps): JSX.Element {
     track?.addEventListener("mouseup", handleOnUp);
     track?.addEventListener("mouseleave", handleOnUp);
     track?.addEventListener("mousemove", handleOnMove);
+    window.onmousedown = e => handleOnDown(e);
+
+window.ontouchstart = e => handleOnDown(e.touches[0]);
+
+window.onmouseup = e => handleOnUp(e);
+
+window.ontouchend = e => handleOnUp(e.touches[0]);
+
+window.onmousemove = e => handleOnMove(e);
+
+window.ontouchmove = e => handleOnMove(e.touches[0]);
 
     return () => {
       // remove the event listeners for both mouse and touch events
