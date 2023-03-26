@@ -12,5 +12,10 @@
 :root{
     background-color: $Cream;
     overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+
 }
 
+body, html {
+overflow-x: hidden;
+}
