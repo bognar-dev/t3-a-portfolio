@@ -25,6 +25,7 @@ model Product {
   description   String     @db.VarChar(255)
   price         Decimal    @db.Decimal(8, 2)
   priceOriginal Decimal    @db.Decimal(8, 2)
+  currency      String     @db.VarChar(3) @default("£")
   imageId       String     @db.VarChar(32)
   CartItem      CartItem[]
 }

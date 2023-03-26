@@ -3,6 +3,9 @@ import { useCart } from "../context/CartProvider";
 import classes from '../styles/Cart.module.scss'
 const ShoppingCart = () => {
   const { cartItems, addToCart, removeFromCart } = useCart();
+  const totalPrice: Number = cartItems.reduce((acc, curr) => {
+    return acc + curr.price;
+  }, 0);
   if(cartItems.length === 0){
     return <>
     No Items in your Cart
@@ -23,6 +26,7 @@ const ShoppingCart = () => {
           </li>
         ))}
       </ul>
+      <div>Total: {totalPrice}</div>
     </div>
   );
 };

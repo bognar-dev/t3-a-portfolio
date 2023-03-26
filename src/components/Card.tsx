@@ -36,8 +36,8 @@ function Card({product,size}: CardProps) {
           <Link href={product.name} className={styles.header}>{product.name}</Link>
         <p>{product.description}</p>
         <div className={styles.priceContainer}>
-          <div className={styles.mainPrice}>{product.price}</div>
-          <div className={styles.originalPrice}>{product.priceOriginal}</div>
+          <div className={styles.mainPrice}>{product.price + ' ' +product.currency}</div>
+          <div className={styles.originalPrice}>{product.priceOriginal +' ' + product.currency}</div>
         </div>
 
 

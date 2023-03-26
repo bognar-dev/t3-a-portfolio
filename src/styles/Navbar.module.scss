@@ -6,6 +6,10 @@ $Cream: hsl(30, 38%, 92%);
 $Verydarkblue: hsl(212, 21%, 14%);
 $Darkgrayishblue: hsl(228, 12%, 48%);
 $White: hsl(0, 0%, 100%);
+
+
+
+
 .container{
     position: sticky;
     padding: 4rem;
@@ -16,6 +20,24 @@ $White: hsl(0, 0%, 100%);
     display: flex;
     align-items: center;
     margin-left: auto;
+
+    [data-notification-count] {
+      position: relative;
+    }
+    [data-notification-count]::before {
+      content: attr(data-notification-count);
+      position: absolute;
+      top: 1em;
+      left: -1em;
+      width: 1em;
+      height: 1em;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 50%;
+      background-color: $Verydarkblue;
+      color: white;
+    }
   }
 
 

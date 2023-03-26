@@ -14,10 +14,11 @@ type Product = {
 
 function Products(): JSX.Element {
 
-  const products = api.products.getAll.useQuery();
+  const products = api.products.getAll.useQuery().data;
+  console.log(products)
   return (
     <div className={classes.cards}>
-      {productsData.map((product: Product) => (
+      {products?.map((product: any) => (
         <Card
           key={product.id}
           size={100}
@@ -26,6 +27,7 @@ function Products(): JSX.Element {
             description: product.description,
             price: product.price,
             priceOriginal: product.priceOriginal,
+            currency: product.currency,
             imageId: product.imageId,
           }}
         />
