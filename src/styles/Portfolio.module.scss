@@ -65,13 +65,13 @@ $White: hsl(0, 0%, 100%);
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  flex-shrink: 1;
 
   .hero__content {
     text-align: center;
+    flex-shrink: 1;
 
     h1 {
-      font-size: 4rem;
-      font-weight: 700;
       color: $Darkcyan;
       margin-bottom: 1rem;
     }
