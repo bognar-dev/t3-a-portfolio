@@ -3,13 +3,21 @@ import { useCart } from "../context/CartProvider";
 import classes from '../styles/Cart.module.scss'
 const ShoppingCart = () => {
   const { cartItems, addToCart, removeFromCart } = useCart();
-  const totalPrice: Number = cartItems.reduce((acc, curr) => {
+  const totalPrice = cartItems.reduce((acc, curr) => {
     return acc + curr.price;
+    // or return acc + +curr.price;
   }, 0);
   if(cartItems.length === 0){
-    return <>
-    No Items in your Cart
-    </>
+    return (
+      <div className={classes.container}>
+        <ul className={classes.list}>
+            <li className={classes.item}>
+              No Items in your Cart
+            </li>
+        </ul>
+        <div>Total: <p>{totalPrice.toString()}</p></div>
+      </div>
+    );
   }
   return (
     <div className={classes.container}>
@@ -18,7 +26,7 @@ const ShoppingCart = () => {
           <li key={item.id} className={classes.item}>
             <div className={classes.itemInfo}>
               <h2 className={classes.itemName}>{item.name}</h2>
-              <p className={classes.itemPrice}>{item.price}</p>
+              <p className={classes.itemPrice}>{item.price + ' '+item.currency}</p>
             </div>
             <button className={classes.itemButton} 
             onClick={() => removeFromCart(item)}>Remove</button>
@@ -26,7 +34,7 @@ const ShoppingCart = () => {
           </li>
         ))}
       </ul>
-      <div>Total: <p>{totalPrice.toString()}</p></div>
+      <div>Total: <p>{totalPrice.toString() + " £"}</p></div>
     </div>
   );
 };

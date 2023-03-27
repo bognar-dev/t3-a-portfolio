@@ -7,21 +7,8 @@ import Image from 'next/image';
 
 export default function Homepage(): JSX.Element {
   const pictures: Pictures = api.instagram.getAll.useQuery().data;
-  if (pictures === undefined) {
-    return (
-      <div>
-        <HeroSection>
-          <h1>Hey! I am Adel</h1>
-          <p>Check out my profile</p>
-          <a className={classes.btn} href="https://www.instagram.com/adell_n/">
-            <Image src="/instagram-logo.png" height={50} width={50} alt="Instagram" />
-          </a>
-        </HeroSection>
-        <p>Pictures could not be fetched</p>
-      </div>
-    )
-  }
 
+  
   return (
     <div>
       <HeroSection>
