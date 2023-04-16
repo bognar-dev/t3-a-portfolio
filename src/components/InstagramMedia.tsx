@@ -1,18 +1,20 @@
-import classes from '../styles/Slider.module.scss';
-import Image from 'next/image'
-import { MediaType, ChildrenData, PictureData } from '~/utils/types';
-import { rgbDataURL } from '~/utils/utils';
+import classes from "../styles/Slider.module.scss";
+import Image from "next/image";
+import { MediaType, ChildrenData, PictureData } from "~/utils/types";
+import { rgbDataURL } from "~/utils/utils";
 
 interface InstagramMediaProps {
   picture: PictureData;
 }
 
-export default function InstagramMedia({ picture }: InstagramMediaProps): JSX.Element {
+export default function InstagramMedia({
+  picture,
+}: InstagramMediaProps): JSX.Element {
   switch (picture.media_type) {
-    case 'IMAGE':
+    case "IMAGE":
       return (
         <Image
-          placeholder='blur'
+          placeholder="blur"
           blurDataURL={rgbDataURL(60, 128, 103)}
           className={classes.image}
           src={picture.media_url}
@@ -22,35 +24,57 @@ export default function InstagramMedia({ picture }: InstagramMediaProps): JSX.El
           draggable="false"
         />
       );
-    case 'CAROUSEL_ALBUM':
+    case "CAROUSEL_ALBUM":
       return (
         <>
-          {picture.children?.data.map((child: ChildrenData) => (
-            <Image
-              placeholder='blur'
-              blurDataURL={rgbDataURL(60, 128, 103)}
-              width={400}
-              height={400}
-              alt={"hah"}
-              className={classes.image}
-              key={child.id}
-              src={child.media_url}
-              draggable="false"
-            />
-          ))}
+          {picture.children?.data.map((child: ChildrenData) => {
+            switch (child.media_type) {
+              case "IMAGE":
+                return (
+                  <Image
+                    placeholder="blur"
+                    blurDataURL={rgbDataURL(60, 128, 103)}
+                    width={400}
+                    height={400}
+                    alt={"hah"}
+                    className={classes.image}
+                    key={child.id}
+                    src={child.media_url}
+                    draggable="false"
+                  />
+                );
+              case "VIDEO":
+                return (
+                  <video
+                    placeholder="blur"
+                    width={400}
+                    height={400}
+                    className={classes.video}
+                    autoPlay
+                    muted
+                    loop
+                    draggable="false"
+                  >
+                    <source src={child.media_url} />
+                    Sorry, your browser doesn't support embedded videos.
+                  </video>
+                );
+            }
+          })}
         </>
       );
-    case 'VIDEO':
+    case "VIDEO":
       return (
         <video
-          placeholder='blur'
+          placeholder="blur"
           width={400}
           height={400}
           className={classes.video}
           autoPlay
           muted
           loop
-          draggable="false" >
+          draggable="false"
+        >
           <source src={picture.media_url} />
           Sorry, your browser doesn't support embedded videos.
         </video>

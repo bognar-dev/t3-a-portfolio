@@ -42,6 +42,7 @@ export interface Children {
 export interface ChildrenData {
   media_url: string;
   id:        string;
+  media_type: MediaType;
 }
 
 export enum MediaType {

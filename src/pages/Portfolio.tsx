@@ -103,7 +103,7 @@ window.ontouchmove = e => handleOnMove(e.touches[0]);
   const [selectedImage, setSelectedImage] = useState<any>(null);
   const handleImageHover = (image: any) => {
     setSelectedImage(image);
-    console.log(image)
+    //console.log(image)
   };
   const handleCloseModal = () => {
     setSelectedImage(null);

@@ -15,7 +15,7 @@ type Product = {
 function Products(): JSX.Element {
 
   const products = api.products.getAll.useQuery().data;
-  console.log(products)
+  //console.log(products)
   return (
     <div className={classes.cards}>
       {products?.map((product: any) => (

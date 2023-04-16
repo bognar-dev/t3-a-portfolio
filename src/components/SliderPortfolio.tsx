@@ -55,7 +55,6 @@ function handleOnMove(track: any, e: { clientX: number; }) {
 }
 
 function checkIntersection(element: { getBoundingClientRect: () => any; }, crosshair: { getBoundingClientRect: () => any; }) {
-  console.log(element)
   const elementRect = element.getBoundingClientRect();
   const crosshairRect = crosshair.getBoundingClientRect();
   return !(
