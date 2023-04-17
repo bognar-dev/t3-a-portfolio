@@ -56,15 +56,15 @@ export default function Slider({ pictures }: SliderProps): JSX.Element {
     track?.addEventListener("mousemove", handleOnMove);
     window.onmousedown = e => handleOnDown(e);
 
-window.ontouchstart = e => handleOnDown(e.touches[0]);
+//window.ontouchstart = e => handleOnDown(e.touches[0]);
 
-window.onmouseup = e => handleOnUp(e);
+//window.onmouseup = e => handleOnUp(e);
 
-window.ontouchend = e => handleOnUp(e.touches[0]);
+//window.ontouchend = e => handleOnUp(e.touches[0]);
 
-window.onmousemove = e => handleOnMove(e);
+//window.onmousemove = e => handleOnMove(e);
 
-window.ontouchmove = e => handleOnMove(e.touches[0]);
+//window.ontouchmove = e => handleOnMove(e.touches[0]);
 
     return () => {
       // remove the event listeners for both mouse and touch events
@@ -72,7 +72,7 @@ window.ontouchmove = e => handleOnMove(e.touches[0]);
       //window.removeEventListener("touchstart", handleOnDown);
 
       window.removeEventListener("mouseup", handleOnUp);
-      window.removeEventListener("touchend", handleOnUp);
+      //window.removeEventListener("touchend", handleOnUp);
 
       window.removeEventListener("mousemove", handleOnMove);
       //window.removeEventListener("touchmove", handleOnMove);

@@ -18,9 +18,7 @@ export default function Homepage(): JSX.Element {
           <img src="/instagram-logo.png" height={50} width={50} alt="Instagram" />
         </a>
       </HeroSection>
-      <div className={classes.SliderContainer}>
         <Slider pictures={pictures} />
-      </div>
     </div>
   );
 }

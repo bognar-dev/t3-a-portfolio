@@ -43,6 +43,8 @@ $White: hsl(0, 0%, 100%);
 
   .navMenu {
     display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
   
   .navLink {
@@ -115,6 +117,39 @@ $White: hsl(0, 0%, 100%);
     opacity: 1;
     
   }
-
   
+  @media (max-width: 910px) {
+    .navMenu {
+      flex-direction: column;
+    }
+  
+    .navLink {
+      font-size: 1.5rem;
+    }
+    .dot{
+      display: none;
+    }
+
+    .cartLinkContainer {
+      all: unset;
+
+    [data-notification-count] {
+      position: relative;
+    }
+    [data-notification-count]::before {
+      content: attr(data-notification-count);
+      position: absolute;
+      top: 1em;
+      left: -1em;
+      width: 1em;
+      height: 1em;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 50%;
+      background-color: $Verydarkblue;
+      color: white;
+    }
+  }
+}
   
