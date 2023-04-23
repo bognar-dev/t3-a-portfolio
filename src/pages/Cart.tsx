@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { useCart } from "../context/CartProvider";
 import classes from '../styles/Cart.module.scss'
 const ShoppingCart = () => {
-  const { cartItems, addToCart, removeFromCart } = useCart();
+  const { cartItems,removeFromCart } = useCart();
   const totalPrice = cartItems.reduce((acc, curr) => {
     return acc + curr.price;
     // or return acc + +curr.price;

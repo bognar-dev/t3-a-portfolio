@@ -1,6 +1,4 @@
-import Image from "next/image";
-import { ReactNode } from "react";
-import img from "../../instagram-logo.png"
+import type { ReactNode } from "react";
 import classes from '../styles/Home.module.scss';
 
 interface HeroProps {

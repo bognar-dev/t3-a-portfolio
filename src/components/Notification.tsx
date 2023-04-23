@@ -1,18 +1,18 @@
 import { useEffect, useState } from 'react';
 import classes from '../styles/Notification.module.scss';
+import type { Product } from 'prisma/prisma-client';
 interface NotificationProps {
-  product:any
-  duration: any 
-  show: any 
+  product:Product
+  duration: number
+  show: boolean
 }
 
 function Notification({ product, duration, show  }:NotificationProps) {
-  const [showN, setShow] = useState(false);
 
   useEffect(() => {
     if (product && show) {
       const timeoutId = setTimeout(() => {
-        setShow(false);
+
       }, duration);
       return () => clearTimeout(timeoutId);
     }

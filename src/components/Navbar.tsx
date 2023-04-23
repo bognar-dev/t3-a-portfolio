@@ -1,12 +1,10 @@
 import classes from "../styles/Navbar.module.scss";
 
 import Link from 'next/link'
-import { useRouter } from 'next/router'
 import { useCart } from "~/context/CartProvider";
 
 export default function Navbar() {
-  const { cartItems, addToCart, removeFromCart } = useCart();
-  const router = useRouter();
+  const { cartItems} = useCart();
   return (
     <nav className={classes.navMenu}>
       <Link className={classes.navLink} href="/">

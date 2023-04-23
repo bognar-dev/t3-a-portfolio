@@ -1,6 +1,6 @@
 import classes from "../styles/Slider.module.scss";
 import Image from "next/image";
-import { MediaType, ChildrenData, PictureData } from "~/utils/types";
+import type {ChildrenData, PictureData} from "~/utils/types";
 import { rgbDataURL } from "~/utils/utils";
 
 interface InstagramMediaProps {
@@ -27,7 +27,7 @@ export default function InstagramMedia({
     case "CAROUSEL_ALBUM":
       return (
         <>
-          {picture.children?.data.map((child: ChildrenData) => {
+          {picture.children?.data.map((child: ChildrenData ,key: number) => {
             switch (child.media_type) {
               case "IMAGE":
                 return (
@@ -38,7 +38,7 @@ export default function InstagramMedia({
                     height={400}
                     alt={"hah"}
                     className={classes.image}
-                    key={child.id}
+                    key={key}
                     src={child.media_url}
                     draggable="false"
                   />
@@ -56,7 +56,7 @@ export default function InstagramMedia({
                     draggable="false"
                   >
                     <source src={child.media_url} />
-                    Sorry, your browser doesn't support embedded videos.
+                    Sorry, your browser does not support embedded videos.
                   </video>
                 );
             }
@@ -76,7 +76,7 @@ export default function InstagramMedia({
           draggable="false"
         >
           <source src={picture.media_url} />
-          Sorry, your browser doesn't support embedded videos.
+          Sorry, your browser does not support embedded videos.
         </video>
       );
     default:

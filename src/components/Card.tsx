@@ -5,16 +5,15 @@ import styles from '~/styles/Card.module.scss'
 import { getImageUrl } from '~/utils/utils';
 import { useCart } from '~/context/CartProvider';
 import Notification from '~/components/Notification';
+import type { Product } from '@prisma/client';
 
 interface CardProps {
-  product: any;
-  size:any
-  
+  product: Product;
 }
-function Card({product,size}: CardProps) {
-  const { cartItems, addToCart, removeFromCart } = useCart();
+function Card({product}: CardProps) {
+  const {addToCart} = useCart();
   const [showNotification, setShowNotification] = useState(false);
-  const onCickaddToCart = (product: any)=>{
+  const onCickaddToCart = (product: Product)=>{
     addToCart(product);
     setShowNotification(true);
     setTimeout(() => {
@@ -36,8 +35,8 @@ function Card({product,size}: CardProps) {
           <Link href={product.name} className={styles.header}>{product.name}</Link>
         <p>{product.description}</p>
         <div className={styles.priceContainer}>
-          <div className={styles.mainPrice}>{product.price + ' ' +product.currency}</div>
-          <div className={styles.originalPrice}>{product.priceOriginal +' ' + product.currency}</div>
+          <div className={styles.mainPrice}>{`${product.price} ${product.currency}`}</div>
+          <div className={styles.originalPrice}>{`${product.pricePrevious} ${product.currency}`}</div>
         </div>
 
 

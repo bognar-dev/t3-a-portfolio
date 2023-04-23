@@ -1,35 +1,36 @@
-import { useState, useEffect } from 'react';
+import {useEffect } from 'react';
 import classes from '../styles/Slider.module.scss';
 import InstagramMedia from './InstagramMedia';
-
+import type { PictureData, Pictures } from '~/utils/types';
 
 
 interface SliderProps {
-  pictures: any;
+  pictures: PictureData[];
 }
 
 export default function Slider({ pictures }: SliderProps): JSX.Element {
   useEffect(() => {
-    const track: any = document.querySelector(`.${classes.imageTrack}`);
+    const track= document.querySelector(`.${classes.imageTrack}`);
+    if(track instanceof HTMLElement){
 
-    const handleOnDown = (e: any) => (track.dataset.mouseDownAt = e.clientX);
+    const handleOnDown = (e: MouseEvent) => (track.dataset.mouseDownAt = e.clientX.toString());
 
-    const handleOnUp = (e:any) => {
+    const handleOnUp = (e:MouseEvent) => {
       track.dataset.mouseDownAt = "0";
       track.dataset.prevPercentage = track.dataset.percentage;
     };
 
-    const handleOnMove = (e: any) => {
+    const handleOnMove = (e: MouseEvent) => {
       if (track.dataset.mouseDownAt === "0") return;
 
-      const mouseDelta = parseFloat(track.dataset.mouseDownAt) - e.clientX,
+      const mouseDelta = parseFloat(track.dataset.mouseDownAt!) - e.clientX,
         maxDelta = window.innerWidth / 2;
 
       const percentage =
         (mouseDelta / maxDelta) * -100,
         nextPercentageUnconstrained =
-          parseFloat(track.dataset.prevPercentage) + percentage,
-        nextPercentage = Math.max(Math.min(nextPercentageUnconstrained, 0), -100);
+          parseFloat(track.dataset.prevPercentage!) + percentage,
+        nextPercentage = Math.max(Math.min(nextPercentageUnconstrained, 0), -100).toString();
 
       track.dataset.percentage = nextPercentage;
 
@@ -82,11 +83,11 @@ export default function Slider({ pictures }: SliderProps): JSX.Element {
       track?.addEventListener("mouseup", handleOnUp);
       track?.addEventListener("mouseleave", handleOnUp);
       track?.addEventListener("mousemove", handleOnMove);
-    };
+    };}
   }, []);
   return (
     <div className={classes.imageTrack} data-mouse-down-at="0" data-prev-percentage="0">
-      {pictures?.map((picture: any,index:any) => (
+      {pictures?.map((picture:PictureData,index:number) => (
         <InstagramMedia key={index} picture={picture}/>
       ))}
     </div>

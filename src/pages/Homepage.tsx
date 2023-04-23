@@ -1,12 +1,11 @@
 import Slider from '~/components/Slider';
 import classes from '../styles/Home.module.scss';
-import { Pictures } from '~/utils/types';
+import type { Pictures } from '~/utils/types';
 import HeroSection from '~/components/HeroSection';
 import { api } from '~/utils/api';
-import Image from 'next/image';
 
 export default function Homepage(): JSX.Element {
-  const pictures: Pictures = api.instagram.getAll.useQuery().data;
+  const pictures = api.instagram.getAll.useQuery();
 
   
   return (
@@ -18,7 +17,7 @@ export default function Homepage(): JSX.Element {
           <img src="/instagram-logo.png" height={50} width={50} alt="Instagram" />
         </a>
       </HeroSection>
-        <Slider pictures={pictures} />
+        <Slider pictures={pictures.data} />
     </div>
   );
 }

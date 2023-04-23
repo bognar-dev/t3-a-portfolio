@@ -12,7 +12,6 @@ import Portfolio from "./Portfolio";
 import Products from "./Products";
 
 const Home: NextPage = () => {
-  const router = useRouter();
   return (
     <>
       <Head>
