@@ -36,7 +36,7 @@ function Card({product}: CardProps) {
         <p>{product.description}</p>
         <div className={styles.priceContainer}>
           <div className={styles.mainPrice}>{`${product.price} ${product.currency}`}</div>
-          <div className={styles.originalPrice}>{`${product.pricePrevious} ${product.currency}`}</div>
+          <div className={styles.originalPrice}>{`${product.priceOriginal} ${product.currency}`}</div>
         </div>
 
 
