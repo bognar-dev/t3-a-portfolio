@@ -1,6 +1,6 @@
 import classes from "../styles/Slider.module.scss";
 import Image from "next/image";
-import type {InstagramChildren, InstagramMedia, InstagramMedia} from "@prisma/client"
+import type {InstagramChildren, InstagramMedia} from "@prisma/client"
 import { rgbDataURL } from "~/utils/utils";
 
 interface InstagramMediaProps {
