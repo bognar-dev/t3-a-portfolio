@@ -6,6 +6,7 @@ import { getImageUrl } from '~/utils/utils';
 import { useCart } from '~/context/CartProvider';
 import Notification from '~/components/Notification';
 import type { Product } from '@prisma/client';
+import { api } from '~/utils/api';
 
 interface CardProps {
   product: Product;
@@ -13,8 +14,12 @@ interface CardProps {
 function Card({product}: CardProps) {
   const {addToCart} = useCart();
   const [showNotification, setShowNotification] = useState(false);
+
+  const ctx = api.useContext();
+
   const onCickaddToCart = (product: Product)=>{
     addToCart(product);
+    ctx.products.addToCart.fetch({ productId:product.id });
     setShowNotification(true);
     setTimeout(() => {
       setShowNotification(false);

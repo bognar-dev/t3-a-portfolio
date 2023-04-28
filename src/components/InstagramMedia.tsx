@@ -1,13 +1,13 @@
 import classes from "../styles/Slider.module.scss";
 import Image from "next/image";
-import type {ChildrenData, PictureData} from "~/utils/types";
+import type {InstagramChildren, InstagramMedia, InstagramMedia} from "@prisma/client"
 import { rgbDataURL } from "~/utils/utils";
 
 interface InstagramMediaProps {
-  picture: PictureData;
+  picture: InstagramMedia;
 }
 
-export default function InstagramMedia({
+export default function InstagramCard({
   picture,
 }: InstagramMediaProps): JSX.Element {
   switch (picture.media_type) {
@@ -27,7 +27,7 @@ export default function InstagramMedia({
     case "CAROUSEL_ALBUM":
       return (
         <>
-          {picture.children?.data.map((child: ChildrenData ,key: number) => {
+          {picture.children?.data.map((child: InstagramChildren ,key: number) => {
             switch (child.media_type) {
               case "IMAGE":
                 return (

@@ -1,8 +1,10 @@
 import React, { createContext, useState, useContext} from 'react';
 import { Product, CartItem } from 'prisma/prisma-client'
+import { prisma } from '~/server/db';
+import { api } from '~/utils/api';
 
 interface CartContextValue {
-  cartItems: CartItem[];
+  cartItems: Product[];
   addToCart: (product: Product) => void;
   removeFromCart: (product: CartItem) => void;
 }
@@ -14,11 +16,9 @@ const CartContext = createContext<CartContextValue>({
 });
 
 const CartProvider: React.FC<React.PropsWithChildren<{}>> = ({ children }) => {
-  const [cartItems, setCartItems] = useState<CartItem[]>([]);
-
+  const [cartItems, setCartItems] = useState<Product[]>([]);
   const addToCart = (product: Product) => {
-    const item: CartItem = {...product, productId: product.id}; // Generate unique id using a library like uuidv4
-    setCartItems([...cartItems, item]);
+    setCartItems([...cartItems, product]);
   };
 
   const removeFromCart = (product: CartItem) => {

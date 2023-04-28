@@ -1,11 +1,11 @@
 import Slider from '~/components/Slider';
 import classes from '../styles/Home.module.scss';
-import type { Pictures } from '~/utils/types';
+import type { InstagramMedia } from '@prisma/client';
 import HeroSection from '~/components/HeroSection';
 import { api } from '~/utils/api';
 
 export default function Homepage(): JSX.Element {
-  const pictures = api.instagram.getAll.useQuery();
+  const pictures: InstagramMedia = api.instagram.getAll.useQuery();
 
   
   return (

@@ -1,6 +1,6 @@
 import {useEffect } from 'react';
 import classes from '../styles/Slider.module.scss';
-import InstagramMedia from './InstagramMedia';
+import InstagramCard from './InstagramMedia';
 import type { PictureData, Pictures } from '~/utils/types';
 
 
@@ -88,7 +88,7 @@ export default function Slider({ pictures }: SliderProps): JSX.Element {
   return (
     <div className={classes.imageTrack} data-mouse-down-at="0" data-prev-percentage="0">
       {pictures?.map((picture:PictureData,index:number) => (
-        <InstagramMedia key={index} picture={picture}/>
+        <InstagramCard key={index} picture={picture}/>
       ))}
     </div>
   );
