@@ -47,5 +47,4 @@ function Card({product}: CardProps) {
     </div>
   )
 }
-
 export default Card 
