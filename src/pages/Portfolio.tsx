@@ -4,7 +4,7 @@ import SliderPortfolio from '~/components/SliderPortfolio';
 import classes from '../styles/Portfolio.module.scss';
 import HeroSection from '~/components/HeroSection';
 import { AnimatePresence, motion } from "framer-motion"
-import { rgbDataURL } from '~/utils/utils';
+import { getRandomInt, rgbDataURL } from '~/utils/utils';
 
 const images = [
   { src: "/Fashion Styling&Art Direction_Adela_Novakova_page-0002.jpg" },
@@ -20,31 +20,30 @@ const images = [
 ]
 export default function Portfolio(): JSX.Element {
   return (
-    <main className={classes.main}>
-      <section className={classes.section}>
-      <HeroSection>
-        <h1>FASHION STYLING &
-          ART DIRECTION PORTFOLIO
-        </h1>
-        <p>Adela Novakova</p>
-      </HeroSection>
-      </section>
+    <div>
+     
+      <section className={classes.grid}>
           {images.map((image, index) => (
-             <section className={classes.section}>
+            <div className={classes.item}>
+               
             <Image
               placeholder='blur'
-              blurDataURL={rgbDataURL(60, 128, 103)}
               className={classes.image}
+              blurDataURL={rgbDataURL(242,235,227)}
               key={index}
               src={image.src}
               alt={image.src}
               draggable="false"
-              width={1920}
-              height={1080}
+              fill={true}
+              style={{objectFit:"cover"}}
             />
-            </section>
+             <div className={classes.item__details}>
+              Detail
+             </div>
+             </div>
           ))}
-    </main>
+          </section>
+</div>
   );
 }
 

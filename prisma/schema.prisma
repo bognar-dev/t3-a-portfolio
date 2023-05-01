@@ -11,21 +11,61 @@ datasource db {
   relationMode = "prisma"
 }
 
+model Cart {
+  id       String     @id @default(cuid())
+  userId   String     @unique
+  CartItem CartItem[]
+
+  @@index([id])
+}
+
 model CartItem {
-  id        Int     @id @default(autoincrement())
-  productId Int
+  id        String  @id @default(cuid())
+  productId String
+  cart      Cart    @relation(fields: [cartId], references: [id])
   product   Product @relation(fields: [productId], references: [id])
+  cartId    String
 
   @@index([productId])
+  @@index([cartId])
 }
 
 model Product {
-  id            Int        @id @default(autoincrement())
+  id            String     @id @default(cuid())
   name          String     @db.VarChar(32)
   description   String     @db.VarChar(255)
   price         Decimal    @db.Decimal(8, 2)
   priceOriginal Decimal    @db.Decimal(8, 2)
-  currency      String     @db.VarChar(3) @default("£")
+  currency      String     @default("£") @db.VarChar(3)
   imageId       String     @db.VarChar(32)
   CartItem      CartItem[]
+
+  @@index([id])
+}
+
+model InstagramMedia {
+  id         String              @id @unique
+  caption    String?
+  media_url  String
+  timestamp  DateTime
+  username   String
+  media_type MediaType
+  permalink  String
+  children   InstagramChildren[]
+}
+
+model InstagramChildren {
+  media_url        String
+  id               String          @id
+  media_type       MediaType
+  InstagramMedia   InstagramMedia? @relation(fields: [instagramMediaId], references: [id])
+  instagramMediaId String?
+  @@index([instagramMediaId])
+}
+
+
+enum MediaType {
+  IMAGE
+  VIDEO
+  CAROUSEL_ALBUM
 }

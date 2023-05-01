@@ -18,3 +18,11 @@ export const rgbDataURL = (r: number, g: number, b: number) =>
   `data:image/gif;base64,R0lGODlhAQABAPAA${
     triplet(0, r, g) + triplet(b, 255, 255)
   }/yH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==`
+
+
+export function getRandomInt(min:number, max:number) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min) + min); // The maximum is exclusive and the minimum is inclusive
+  }
+  
