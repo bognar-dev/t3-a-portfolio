@@ -1,10 +1,6 @@
-import { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
-import SliderPortfolio from '~/components/SliderPortfolio';
 import classes from '../styles/Portfolio.module.scss';
-import HeroSection from '~/components/HeroSection';
-import { AnimatePresence, motion } from "framer-motion"
-import { getRandomInt, rgbDataURL } from '~/utils/utils';
+import { rgbDataURL } from '~/utils/utils';
 
 const images = [
   { src: "/Fashion Styling&Art Direction_Adela_Novakova_page-0002.jpg" },

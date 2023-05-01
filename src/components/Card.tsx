@@ -11,7 +11,7 @@ interface CardProps {
 }
 function Card({product}: CardProps) {
   const [showNotification, setShowNotification] = useState(false);
-  const onCickaddToCart = (product: Product)=>{
+  const onCickaddToCart = (/* product: Product */)=>{
     setShowNotification(true);
     setTimeout(() => {
       setShowNotification(false);
@@ -37,7 +37,7 @@ function Card({product}: CardProps) {
         </div>
 
 
-        <button className={styles.addButton} onClick={() => onCickaddToCart(product)}>Add to Cart</button>
+        <button className={styles.addButton} onClick={() => onCickaddToCart(/* product */)}>Add to Cart</button>
       </div>
       <Notification
         product={product}
