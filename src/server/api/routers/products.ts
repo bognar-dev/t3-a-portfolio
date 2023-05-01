@@ -39,11 +39,7 @@ const cartItems = await prisma.cartItem.findMany({
 })
 
 const cartPrice = await prisma.cartItem.aggregate({
-  _sum: {
-    product: {
-      price: true,
-    },
-  },
+  
   where: {
     cartId: cart.id
   },
