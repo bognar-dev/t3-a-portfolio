@@ -3,7 +3,6 @@ import Image from 'next/image';
 import Link from 'next/link';
 import styles from '~/styles/Card.module.scss'
 import { getImageUrl } from '~/utils/utils';
-import { useCart } from '~/context/CartProvider';
 import Notification from '~/components/Notification';
 import type { Product } from '@prisma/client';
 
@@ -11,10 +10,8 @@ interface CardProps {
   product: Product;
 }
 function Card({product}: CardProps) {
-  const {addToCart} = useCart();
   const [showNotification, setShowNotification] = useState(false);
   const onCickaddToCart = (product: Product)=>{
-    addToCart(product);
     setShowNotification(true);
     setTimeout(() => {
       setShowNotification(false);

@@ -1,9 +1,6 @@
-import { useContext } from "react";
-import { useCart } from "../context/CartProvider";
 import classes from '../styles/Cart.module.scss'
 import { api } from "~/utils/api";
 function ShoppingCart() {
-  const { cartItems, removeFromCart } = useCart();
   const  {data} = api.products.getCart.useQuery({user:"1",})
   if(data?.cartItems.length === 0){
     return (
