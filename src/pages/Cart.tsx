@@ -24,7 +24,7 @@ function ShoppingCart() {
               <p className={classes.itemPrice}>{item.product.price + ' '+item.product.currency}</p>
             </div>
             <button className={classes.itemButton} 
-            onClick={() => removeFromCart(item)}>Remove</button>
+            onClick={()=>{}}>Remove</button>
           </li>
         ))}
       </ul>
